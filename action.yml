@@ -13,7 +13,7 @@ inputs:
     default: 'output.pdf'
 runs:
   using: 'docker'
-  image: 'ghcr.io/noworrieseh/hugo-pdf-action:latest'
+  image: 'docker://ghcr.io/noworrieseh/hugo-pdf-action:latest'
   args:
     - ${{ inputs.source }}
     - ${{ inputs.pdf }}
