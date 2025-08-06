@@ -10,5 +10,5 @@ WORKDIR /app
 RUN uv sync --locked
 RUN uv run playwright install --with-deps chromium
 
-CMD ["uv", "run", "cnvt.py"]
+ENTRYPOINT ["uv", "run", "cnvt.py"]
 
