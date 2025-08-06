@@ -1,0 +1,20 @@
+# action.yml
+name: 'hugo-pdf-action'
+description: 'Hugo PDF Generation Action'
+author: 'noworrieseh'
+inputs:
+  source:
+    description: 'Hugo index.html file'
+    required: false
+    default: 'public/index.html'
+  pdf:
+    description: 'PDF file'
+    required: false
+    default: 'output.pdf'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.source }}
+    - ${{ inputs.pdf }}
+
