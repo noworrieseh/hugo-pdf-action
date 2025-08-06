@@ -1,0 +1,39 @@
+name: Build and Push Docker Image to GHCR
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+
+jobs:
+    build-and-push:
+        runs-on: ubuntu-20.04
+
+        permissions:
+            contents: read
+            packages: write # Required to push to GitHub Container Registry
+
+        steps:
+            # Checkout the repository
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            # Set up Docker Buildx
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v3
+
+            # Log in to GitHub Container Registry
+            - name: Log in to GitHub Container Registry
+              uses: docker/login-action@v3
+              with:
+                  registry: ghcr.io
+                  username: ${{ github.actor }}
+                  password: ${{ secrets.GITHUB_TOKEN }}
+
+            # Build and push the Docker image
+            - name: Build and push Docker image
+              uses: docker/build-push-action@v5
+              with:
+                  context: .
+                  push: true
+                  tags: ghcr.io/${{ github.repository_owner }}/hugo-pdf-action:latest
