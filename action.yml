@@ -17,7 +17,7 @@ inputs:
     default: '11in'
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/noworrieseh/hugo-pdf-action:latest'
+  image: 'Dockerfile'
   args:
     - ${{ inputs.source }}
     - ${{ inputs.pdf }}
