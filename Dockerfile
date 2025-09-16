@@ -1,6 +1,7 @@
 FROM ghcr.io/astral-sh/uv:python3.13-bookworm-slim
 
 ADD . /app
+COPY action.yml /action.yml
 
 ENV PLAYWRIGHT_BROWSERS_PATH=/app/browsers
 ENV UV_LINK_MODE=copy
