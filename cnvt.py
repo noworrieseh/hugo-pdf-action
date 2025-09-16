@@ -37,6 +37,7 @@ async def html_to_pdf(input_path: str, output_path: str, height: str = '19in'):
         await page.goto(url, wait_until="networkidle")
         await page.emulate_media(media="screen")
 
+        print(f"Height: {height}")
         await page.pdf(
             path=output_path,
             page_ranges="1-1",
