@@ -11,10 +11,15 @@ inputs:
     description: 'PDF file'
     required: false
     default: 'output.pdf'
+  height:
+    description: 'Height'
+    required: false
+    default: '11in'
 runs:
   using: 'docker'
   image: 'docker://ghcr.io/noworrieseh/hugo-pdf-action:latest'
   args:
     - ${{ inputs.source }}
     - ${{ inputs.pdf }}
+    - ${{ inputs.height }}
 
