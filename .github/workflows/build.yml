@@ -51,8 +51,12 @@ jobs:
                   labels: ${{ steps.meta.outputs.labels }}
                   #tags: ghcr.io/${{ github.repository_owner }}/hugo-pdf-action:latest
 
-            - name: Update latest tag
-              uses: Actions-R-Us/actions-tagger@v2
+            - name: Create GitHub Release
+              uses: softprops/action-gh-release@v1
               with:
-                  publish_latest_tag: true
+                  draft: false
+                  prerelease: false
+
+            - name: Update latest tag
+              uses: EndBug/latest-tag@latest
 
