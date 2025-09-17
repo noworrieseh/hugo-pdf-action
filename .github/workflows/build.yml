@@ -16,8 +16,7 @@ jobs:
 
         permissions:
             contents: write
-            packages: write # Required to push to GitHub Container Registry
-            workflows: write
+            packages: write
 
         steps:
             # Checkout the repository
