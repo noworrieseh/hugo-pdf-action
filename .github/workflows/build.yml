@@ -56,6 +56,8 @@ jobs:
               with:
                   draft: false
                   prerelease: false
+              env:
+                  GITHUB_TOKEN: ${{ secrets.LEGACY_TOKEN }}
 
             - name: Update latest tag
               uses: EndBug/latest-tag@latest
