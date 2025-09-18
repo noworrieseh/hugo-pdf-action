@@ -16,14 +16,16 @@ jobs:
     build-and-push:
         runs-on: ubuntu-latest
 
-        #permissions:
-        #    contents: write
-        #    packages: write
+        permissions:
+            contents: write
+            packages: write
 
         steps:
             # Checkout the repository
             - name: Checkout code
               uses: actions/checkout@v4
+              with:
+                token: ${{ secrets.LEGACY_TOKEN }}
 
             # Set up Docker Buildx
             - name: Set up Docker Buildx
